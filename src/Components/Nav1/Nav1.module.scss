@@ -1,0 +1,27 @@
+.offCanvas {
+  background-color: #0b3d91;
+
+  &_title {
+    color: #fc3d21;
+    font-size: 2.4em;
+    text-align: center;
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+}
+
+.button {
+  background-color: #fc3d21;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    color: #fc3d21;
+  }
+}

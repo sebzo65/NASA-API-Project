@@ -1,5 +1,11 @@
+import AstroHeader from "../../Components/AstroHeader";
+
 const Home = () => {
-  return <div></div>;
+  return (
+    <div>
+      <AstroHeader />
+    </div>
+  );
 };
 
 export default Home;

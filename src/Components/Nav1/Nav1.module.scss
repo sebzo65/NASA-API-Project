@@ -1,3 +1,16 @@
+.nav {
+  background-color: #0b3d91;
+
+  &_innerNav {
+    background-color: #0b3d91;
+
+    &__burger {
+      background-color: #fc3d21;
+      color: #fc3d21;
+    }
+  }
+}
+
 .offCanvas {
   background-color: #0b3d91;
 

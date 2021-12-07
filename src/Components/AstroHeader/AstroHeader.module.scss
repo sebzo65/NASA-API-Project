@@ -1,0 +1,29 @@
+@import "../../styles/_variables.scss";
+
+.title {
+  text-align: center;
+  font-family: $defaultFont;
+}
+
+.img {
+  height: 70vh;
+  max-height: 85vw;
+  width: 80vw;
+  display: block;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.explanation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin-top: 2vh;
+  border-radius: 4%;
+  padding: 3%;
+  margin: auto;
+  width: auto;
+  max-width: 85vw;
+  background-color: white;
+}

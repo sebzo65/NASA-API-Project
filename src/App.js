@@ -13,11 +13,11 @@ function App() {
       <Routes>
         <Route
           path="/NaturalEventTracker"
-          component={<NaturalEventTracker />}
+          element={<NaturalEventTracker />}
         ></Route>
-        <Route path="/MarsWeather" component={<MarsWeather />}></Route>
-        <Route path="/LandsatImages" component={<LandsatImages />}></Route>
-        <Route path="/" component={<Home />}></Route>
+        <Route path="/MarsWeather" element={<MarsWeather />}></Route>
+        <Route path="/LandsatImages" element={<LandsatImages />}></Route>
+        <Route path="/" element={<Home />}></Route>
       </Routes>
     </Router>
   );

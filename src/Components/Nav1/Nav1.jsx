@@ -13,9 +13,12 @@ import {
 
 const Nav1 = () => {
   return (
-    <Navbar bg="light" expand={false}>
-      <Container fluid>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+    <Navbar className={styles.nav} expand={false}>
+      <Container fluid className={styles.nav_innerNav}>
+        <Navbar.Toggle
+          aria-controls="offcanvasNavbar"
+          className={styles.nav_innerNav__burger}
+        />
         <Navbar.Offcanvas
           className={styles.offCanvas}
           id="offcanvasNavbar"

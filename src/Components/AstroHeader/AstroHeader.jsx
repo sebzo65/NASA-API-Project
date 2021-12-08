@@ -24,6 +24,7 @@ const AstroHeader = () => {
         alt="Astronomy pic of the day"
         className={styles.img}
       />
+      <h3 className={styles.date}>{picture.date}</h3>
       <p className={styles.explanation}>{picture.explanation}</p>
     </div>
   );

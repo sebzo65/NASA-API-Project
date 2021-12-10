@@ -20,13 +20,13 @@ const Home = () => {
   console.log(picture);
 
   //NASA Image & Video Library API (Image Gallery)
-  const [gallery, setGallery] = useState(2);
+  const [gallery, setGallery] = useState(null);
 
   useEffect(() => {
     const renderImages = async () => {
-      const response = await fetch(`https://images-api.nasa.gov/search?q=poor`);
-      const data = await response.json();
-      setGallery(data.collection.items);
+      const response = await fetch(`https://images-api.nasa.gov/search?q=moon`);
+      const data2 = await response.json();
+      setGallery(data2.collection.items);
     };
     renderImages();
   }, []);
@@ -34,7 +34,10 @@ const Home = () => {
   return (
     <div className={styles.homePage}>
       <AstroHeader picture={picture} />
-      <NASAImageGallery gallery={gallery} />
+      {gallery &&
+        gallery.map((gallery, index) => (
+          <NASAImageGallery gallery={gallery} key={index} />
+        ))}
     </div>
   );
 };

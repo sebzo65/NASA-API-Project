@@ -1,6 +1,6 @@
 import styles from "./AstroHeader.module.scss";
 
-const AstroHeader = ({ picture, images }) => {
+const AstroHeader = ({ picture }) => {
   return (
     <div>
       <h1 className={styles.title}>{picture.title}</h1>

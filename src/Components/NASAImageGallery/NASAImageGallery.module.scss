@@ -1,0 +1,21 @@
+.cardRows {
+  display: flex;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+
+  &_img {
+    margin-top: 2%;
+    width: 47vw;
+    height: 45vh;
+  }
+}
+
+.body {
+  text-align: center;
+}

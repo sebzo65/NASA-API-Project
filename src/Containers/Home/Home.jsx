@@ -35,9 +35,11 @@ const Home = () => {
     <div className={styles.homePage}>
       <AstroHeader picture={picture} />
       {gallery &&
-        gallery.map((gallery, index) => (
-          <NASAImageGallery gallery={gallery} key={index} />
-        ))}
+        gallery
+          .filter((gallery, idx) => idx < 6)
+          .map((gallery, idx) => (
+            <NASAImageGallery gallery={gallery} key={idx} />
+          ))}
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import AstroHeader from "../../Components/AstroHeader";
+import SearchBar from "../../Components/SearchBar";
 import NASAImageGallery from "../../Components/NASAImageGallery";
 import styles from "./Home.module.scss";
+import { Row } from "react-bootstrap";
 
 const Home = () => {
   //Astronomy Picture of the Day API Call (Header Image)
@@ -19,6 +21,17 @@ const Home = () => {
   }, []);
   console.log(picture);
 
+  //SearchBar functionality for NASA Image & Video Library API
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    onsubmit(inputValue);
+  };
+
   //NASA Image & Video Library API (Image Gallery)
   const [gallery, setGallery] = useState(null);
 
@@ -34,12 +47,15 @@ const Home = () => {
   return (
     <div className={styles.homePage}>
       <AstroHeader picture={picture} />
-      {gallery &&
-        gallery
-          .filter((gallery, idx) => idx < 6)
-          .map((gallery, idx) => (
-            <NASAImageGallery gallery={gallery} key={idx} />
-          ))}
+      <SearchBar />
+      <Row xs={1} md={3} className={styles.cardRows}>
+        {gallery &&
+          gallery
+            .filter((gallery, idx) => idx < 9)
+            .map((gallery, idx) => (
+              <NASAImageGallery gallery={gallery} key={idx} />
+            ))}
+      </Row>
     </div>
   );
 };

@@ -1,18 +1,37 @@
 import { Button } from "react-bootstrap";
 import styles from "./SearchBar.module.scss";
+import { useState } from "react";
 
-const SearchBar = ({ handleInputChange, handleButtonClick, inputValue }) => {
+const SearchBar = ({ onSubmit }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    onSubmit(inputValue);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleButtonClick();
+    }
+  };
+
   return (
     <>
       <div className={styles.searchText}>
         <p>Search the Gallery!</p>
       </div>
       <div className={styles.inputBox}>
-        <label for="input"></label>
+        <label htmlFor="input"></label>
         <input
           type="text"
           value={inputValue}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           className={styles.input}
           name="input"
         ></input>

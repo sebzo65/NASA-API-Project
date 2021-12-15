@@ -22,14 +22,10 @@ const Home = () => {
   console.log(picture);
 
   //SearchBar functionality for NASA Image & Video Library API
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleButtonClick = () => {
-    onsubmit(inputValue);
+  const [search, setSearch] = useState("moon");
+  console.log("Search:", search);
+  const handleSubmit = (newSearchValue) => {
+    setSearch(newSearchValue);
   };
 
   //NASA Image & Video Library API (Image Gallery)
@@ -37,17 +33,19 @@ const Home = () => {
 
   useEffect(() => {
     const renderImages = async () => {
-      const response = await fetch(`https://images-api.nasa.gov/search?q=moon`);
+      const response = await fetch(
+        `https://images-api.nasa.gov/search?q=${search}`
+      );
       const data2 = await response.json();
       setGallery(data2.collection.items);
     };
     renderImages();
-  }, []);
+  }, [search]);
   console.log(gallery);
   return (
     <div className={styles.homePage}>
       <AstroHeader picture={picture} />
-      <SearchBar />
+      <SearchBar onSubmit={handleSubmit} />
       <Row xs={1} md={3} className={styles.cardRows}>
         {gallery &&
           gallery

@@ -6,7 +6,7 @@ const NASAImageGallery = ({ gallery }) => {
     <div className={styles.body}>
       {/* <Row xs={1} md={2}> */}
       {Array.from({ length: 1 }).map((_, idx) => (
-        <Col className={styles.column}>
+        <Col className={styles.column} key={idx}>
           <Card className={styles.card}>
             {gallery.links && (
               <Card.Img

@@ -1,0 +1,16 @@
+@import "../../styles/_variables.scss";
+
+.title {
+  text-align: center;
+  font-family: $defaultFont;
+  padding-bottom: 7%;
+  margin-top: 5%;
+  color: #fc3d21;
+}
+
+.landsatPic {
+  display: block;
+  margin: auto;
+  height: 60%;
+  width: 80%;
+}

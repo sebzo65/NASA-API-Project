@@ -1,38 +1,38 @@
-import { useState } from "react";
-import styles from "./LandsatSearch.module.scss";
-import { Button } from "react-bootstrap";
+// import { useState } from "react";
+// import styles from "./LandsatSearch.module.scss";
+// import { Button } from "react-bootstrap";
 
 const LandsatSearch = ({ onSubmit }) => {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [date, setDate] = useState("");
+  // const [latitude, setLatitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
+  // const [date, setDate] = useState("");
 
-  const handleLatInput = (e) => {
-    setLatitude(e.target.value);
-  };
+  // const handleLatInput = (e) => {
+  //   setLatitude(e.target.value);
+  // };
 
-  const handleLongInput = (e) => {
-    setLongitude(e.target.value);
-  };
+  // const handleLongInput = (e) => {
+  //   setLongitude(e.target.value);
+  // };
 
-  const handleDateInput = (e) => {
-    setDate(e.target.value);
-  };
+  // const handleDateInput = (e) => {
+  //   setDate(e.target.value);
+  // };
 
-  const handleButtonClick = () => {
-    onSubmit(latitude, longitude);
-  };
+  // const handleButtonClick = () => {
+  //   onSubmit(latitude, longitude);
+  // };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleButtonClick();
-    }
-  };
+  // const handleKeyPress = (e) => {
+  //   if (e.key === "Enter") {
+  //     e.preventDefault();
+  //     handleButtonClick();
+  //   }
+  // };
 
   return (
     <div>
-      <div className={styles.inputBox}>
+      {/* <div className={styles.inputBox}>
         <label htmlFor="latInput"></label>
         <input
           type="text"
@@ -70,7 +70,7 @@ const LandsatSearch = ({ onSubmit }) => {
             name="dateInput"
           ></input>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

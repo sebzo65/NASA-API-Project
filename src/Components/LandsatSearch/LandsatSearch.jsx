@@ -1,34 +1,34 @@
-// import { useState } from "react";
-// import styles from "./LandsatSearch.module.scss";
-// import { Button } from "react-bootstrap";
+import { useState } from "react";
+import styles from "./LandsatSearch.module.scss";
+import { Button } from "react-bootstrap";
 
 const LandsatSearch = ({ onSubmit }) => {
-  // const [latitude, setLatitude] = useState("");
-  // const [longitude, setLongitude] = useState("");
-  // const [date, setDate] = useState("");
+  // const [latitudeInput, setLatitudeInput] = useState("");
+  const [longitudeInput, setLongitudeInput] = useState("");
+  // const [dateInput, setDateInput] = useState("");
 
   // const handleLatInput = (e) => {
-  //   setLatitude(e.target.value);
+  //   setLatitudeInput(e.target.value);
   // };
 
-  // const handleLongInput = (e) => {
-  //   setLongitude(e.target.value);
-  // };
+  const handleLongChange = (e) => {
+    setLongitudeInput(e.target.value);
+  };
 
   // const handleDateInput = (e) => {
-  //   setDate(e.target.value);
+  //   setDateInput(e.target.value);
   // };
 
-  // const handleButtonClick = () => {
-  //   onSubmit(latitude, longitude);
-  // };
+  const handleButtonClick = () => {
+    onSubmit(longitudeInput);
+  };
 
-  // const handleKeyPress = (e) => {
-  //   if (e.key === "Enter") {
-  //     e.preventDefault();
-  //     handleButtonClick();
-  //   }
-  // };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleButtonClick();
+    }
+  };
 
   return (
     <div>
@@ -41,25 +41,24 @@ const LandsatSearch = ({ onSubmit }) => {
           onKeyPress={handleKeyPress}
           className={styles.latInput}
           name="latInput"
-        ></input>
-        <Button
-          onClick={handleButtonClick}
-          className={styles.button}
-          variant="secondary"
-          size="lg"
-        >
-          SEARCH
-        </Button>
-        <label htmlFor="longInput"></label>
-        <input
-          type="text"
-          value={longitude}
-          onChange={handleLongInput}
-          onKeyPress={handleKeyPress}
-          className={styles.longInput}
-          name="longInput"
-        ></input>
-        <div>
+        ></input>*/}
+      <Button
+        onClick={handleButtonClick}
+        className={styles.button}
+        variant="secondary"
+        size="lg"
+      >
+        SEARCH
+      </Button>
+      <label htmlFor="longInput"></label>
+      <input
+        type="text"
+        onChange={handleLongChange}
+        onKeyPress={handleKeyPress}
+        className={styles.longInput}
+        name="longInput"
+      ></input>
+      {/*<div>
           <label htmlFor="dataInput"></label>
           <input
             type="text"

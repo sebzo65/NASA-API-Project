@@ -1,16 +1,12 @@
 @import "../../styles/_variables.scss";
 
-.title {
+.landSatTitle {
   text-align: center;
-  font-family: $defaultFont;
-  padding-bottom: 7%;
-  margin-top: 5%;
-  color: #fc3d21;
 }
 
-.landsatPic {
+.landSatPic {
   display: block;
   margin: auto;
-  height: 60%;
-  width: 80%;
+  margin-bottom: 10vh;
+  height: 70vh;
 }

@@ -4,45 +4,55 @@ import styles from "./LandsatImages.module.scss";
 
 const key = "GJ18rhBDoC1WeHfexEhTSsZh18xsgmlr3w25Rr3i";
 const LandsatImages = () => {
-  //Longitude, Latitude & Date SearchBar functionality for Earth API
-  const [longitude, setLongitude] = useState(-110.8358417);
-  // const [latitude, setLatitude] = useState(1.5);
-  // const [date, setDate] = useState("2014-02-01");
-  //
+  // api call for landsat imagery
+  const [landSatImagery, setLandSatImagery] = useState(null);
 
-  //Earth API (Landsat Images from coordinates)
-  const [landsat, setLandsat] = useState(null);
+  // lat = N and S
+  // lon = E and W
+
+  // longitude state
+  const [longSearch, setLongSearch] = useState(-110.8358417);
+  // latitude state
+  const [latSearch, setLatSearch] = useState(32.1499889);
 
   useEffect(() => {
-    const renderLandsat = async () => {
+    const getLandSatImagery = async () => {
       const response = await fetch(
-        `https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=32.1499889&date=2020-11-01&&dim=0.155&api_key=${key}`
+        `https://api.nasa.gov/planetary/earth/assets?lon=${longSearch}&lat=${latSearch}&date=2020-11-01&&dim=0.1&api_key=${key}`
       );
-      console.log("response: ", response);
-      const landsatData = await response.json();
-      console.log("landsatData: ", landsatData);
-      setLandsat(landsatData);
+      console.log("response:", response);
+      const data = await response.json();
+      console.log("data:", data);
+      setLandSatImagery(data);
     };
-    renderLandsat();
-  }, [longitude]);
-  // }, [longitude, latitude, date]);
-  console.log("Landsat-Imagery state: ", landsat);
+    getLandSatImagery();
+  }, [longSearch, latSearch]); // watch the search states
 
-  console.log(longitude);
-  const handleSubmit = (newSearchValue) => {
-    setLongitude(newSearchValue);
-    // setLatitude(newSearchValue);
-    // setDate(newSearchValue);
+  console.log("landsatimagery state:", landSatImagery);
+
+  // function handler which we will pass down to our search component, allowing us to update the state.
+  const handleLongSubmit = (longValue) => {
+    setLongSearch(longValue);
   };
+  // latitude handler
+  const handleLatSubmit = (latValue) => {
+    setLatSearch(latValue);
+  };
+
+  console.log("longSearch:", longSearch);
+  console.log("latSearch:", latSearch);
 
   return (
     <div>
-      <h1 className={styles.title}>
-        Find satellite images of your favourite place!
-      </h1>
-      <LandsatSearch onSubmit={handleSubmit} />
-      {landsat && (
-        <img src={landsat.url} alt="test" className={styles.landsatPic} />
+      <h1 className={styles.landSatTitle}>LandSat Imagery</h1>
+      <LandsatSearch onSubmit={(handleLongSubmit, handleLatSubmit)} />
+      {landSatImagery && <p>{landSatImagery.msg}</p>}
+      {landSatImagery && (
+        <img
+          src={landSatImagery.url}
+          alt="LandSat Image"
+          className={styles.landSatPic}
+        />
       )}
     </div>
   );

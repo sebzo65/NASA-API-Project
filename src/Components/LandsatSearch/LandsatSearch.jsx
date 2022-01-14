@@ -25,22 +25,30 @@ const LandsatSearch = ({ onSubmit }) => {
   console.log("latValue", latValue);
 
   return (
-    <div className={styles.searchBar}>
-      <div className={styles.searchBar_long}>
-        <label>Longitude</label>
-        <input type="text" onChange={handleLongChange} />
-      </div>
-      <div>
-        <label>Latitude</label>
-        <input type="text" onChange={handleLatChange} />
-      </div>
-      {/* <div>
+    <div>
+      <div className={styles.searchBar}>
+        <div>
+          <label>Longitude</label>
+          <input type="text" onChange={handleLongChange} />
+        </div>
+        <div>
+          <label>Latitude</label>
+          <input type="text" onChange={handleLatChange} />
+        </div>
+        {/* <div>
                 <p>Date</p>
                 <input type="text" />
             </div> */}
-      <div>
-        <button onClick={handleButtonClick}>Search!</button>
+        <div>
+          <button onClick={handleButtonClick}>Search!</button>
+        </div>
       </div>
+      <p className={styles.latLongInfo}>
+        Latitude and longitude are a pair of numbers (coordinates) used to
+        describe a position on the plane of a geographic coordinate system. The
+        numbers are in decimal degrees format and range from -90 to 90 for
+        latitude and -180 to 180 for longitude.
+      </p>
     </div>
   );
 };

@@ -10,3 +10,22 @@
   margin-bottom: 10vh;
   height: 70vh;
 }
+
+.cardGallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 2%;
+  height: 65vh;
+  width: 40vw;
+}
+
+.cardPic {
+  display: flex;
+  height: 35vh;
+  width: auto;
+}

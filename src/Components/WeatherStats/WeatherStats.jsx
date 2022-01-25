@@ -1,6 +1,9 @@
 import { Carousel } from "react-bootstrap";
 
-const WeatherStats = () => {
+// const numInAPI = "1099";
+
+const WeatherStats = ({ weather }) => {
+  console.log(weather.validity_checks);
   return (
     <Carousel>
       <Carousel.Item>
@@ -9,8 +12,9 @@ const WeatherStats = () => {
           src="https://scx2.b-cdn.net/gfx/news/2018/meteoritesre.jpg"
           alt="First slide"
         />
+        {/*Atmospheric Temperature sensor data*/}
         <Carousel.Caption>
-          <h3>First slide label</h3>
+          <h3>{weather}</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>

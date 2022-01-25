@@ -20,7 +20,7 @@ const MarsWeather = () => {
   console.log(weather);
   return (
     <div>
-      <WeatherStats />
+      <WeatherStats weather={weather} />
     </div>
   );
 };

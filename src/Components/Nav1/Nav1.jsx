@@ -41,8 +41,8 @@ const Nav1 = () => {
               <Nav.Link as={Link} className={styles.links} to="/LandsatImages">
                 Landsat Images
               </Nav.Link>
-              <Nav.Link as={Link} className={styles.links} to="/MarsWeather">
-                Mars Weather
+              <Nav.Link as={Link} className={styles.links} to="/MarsRover">
+                Mars Rover
               </Nav.Link>
               <Nav.Link
                 as={Link}

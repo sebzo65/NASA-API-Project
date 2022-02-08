@@ -3,14 +3,14 @@ import RoverPics from "../../Components/RoverPics";
 
 const MarsRover = () => {
   //Mars Rover API
-  const [roverPics, setRoverPics] = useState("");
+  const [roverPics, setRoverPics] = useState(null);
 
-  const KEY = "mgCzn4vdY8LralpHVwIKBPydQIDt6LXodanpsy10";
+  const KEY = "GJ18rhBDoC1WeHfexEhTSsZh18xsgmlr3w25Rr3i";
 
   useEffect(() => {
     const getRoverPics = async () => {
       const response = await fetch(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${KEY}`
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY`
       );
       const data = await response.json();
       setRoverPics(data);
@@ -20,7 +20,10 @@ const MarsRover = () => {
   console.log(roverPics);
   return (
     <div>
-      <RoverPics roverPics={roverPics} />
+      {roverPics &&
+        roverPics.photos
+          .filter((pics, index) => index < 8)
+          .map((pic, index) => <RoverPics roverPics={pic} key={index} />)}
     </div>
   );
 };

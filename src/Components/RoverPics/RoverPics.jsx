@@ -5,9 +5,6 @@ const RoverPics = ({ roverPics }) => {
   console.log("roverPics prop: ", roverPics);
   return (
     <div>
-      {/* <input type="radio" name="camera" value="NAVCAM"></input>
-      <input type="radio" name="camera" value="PANCAM"></input>
-      <input type="radio" name="camera" value="MINITES"></input> */}
       <div className={styles.cardGallery}>
         <Row xs={2} md={4} className="g-4">
           {/* {Array.from({ length: 4 }).map((_, idx) => ( */}

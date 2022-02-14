@@ -9,12 +9,12 @@ const MarsRover = () => {
 
   const [roverCam, setRoverCam] = useState(null);
 
-  // const KEY = "GJ18rhBDoC1WeHfexEhTSsZh18xsgmlr3w25Rr3i";
+  const KEY = "GJ18rhBDoC1WeHfexEhTSsZh18xsgmlr3w25Rr3i";
 
   useEffect(() => {
     const getRoverPics = async () => {
       const response = await fetch(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&camera=${roverCam}&api_key=DEMO_KEY`
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&camera=${roverCam}&api_key=${KEY}`
       );
       const data = await response.json();
       setRoverPics(data);
@@ -47,14 +47,26 @@ const MarsRover = () => {
   return (
     <div>
       <ButtonGroup aria-label="Basic example">
-        <Button variant="secondary" onClick={handleClick}>
-          FHAZ
+        <Button variant="secondary" value="FHAZ" onClick={handleClick}>
+          Front Hazard Avoidance Camera
         </Button>
-        <Button variant="secondary" onClick={handleClick}>
-          NAVCAM
+        <Button variant="secondary" value="RHAZ" onClick={handleClick}>
+          Rear Hazard Avoidance Camera
         </Button>
-        <Button variant="secondary" onClick={handleClick}>
-          MAST
+        <Button variant="secondary" value="MAST" onClick={handleClick}>
+          Mast Camera
+        </Button>
+        <Button variant="secondary" value="CHEMCAM" onClick={handleClick}>
+          Chemistry and Camera Complex
+        </Button>
+        <Button variant="secondary" value="MAHLI" onClick={handleClick}>
+          Mars Hand Lens Imager
+        </Button>
+        <Button variant="secondary" value="MARDI" onClick={handleClick}>
+          Mars Descent Imager
+        </Button>
+        <Button variant="secondary" value="NAVCAM" onClick={handleClick}>
+          Navigation Camera
         </Button>
       </ButtonGroup>
       <div className={styles.roverGallery}>

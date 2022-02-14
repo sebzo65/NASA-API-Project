@@ -17,13 +17,19 @@ const RoverPics = ({ roverPics }) => {
                 alt=""
                 className={styles.cardPic}
               />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
+              <Card.Body className={styles.cardText}>
+                <Card.Title className={styles.cardText_cardTitle}>
+                  {roverPics.rover.name} - {roverPics.camera.name}
+                </Card.Title>
+                <div className={styles.cardText_cardSubtitles}>
+                  <Card.Text>
+                    Launch Date: {roverPics.rover.launch_date}
+                  </Card.Text>
+                  <Card.Text>
+                    Landing Date: {roverPics.rover.landing_date}
+                  </Card.Text>
+                  <Card.Text>Status: {roverPics.rover.status}</Card.Text>
+                </div>
               </Card.Body>
             </Card>
           </Col>

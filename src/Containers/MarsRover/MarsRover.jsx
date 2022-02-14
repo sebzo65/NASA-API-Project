@@ -43,6 +43,28 @@ const MarsRover = () => {
   // }
 
   // let newRoverPics = cleanedRoverPics(roverPics.photos);
+  //
+  //
+
+  let newArr = [];
+  function roverArr(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      newArr.push(arr[i]);
+    }
+    return newArr;
+  }
+  console.log("NewArr:", newArr);
+  console.log(roverArr(roverPics.photos));
+
+  let picArr = [];
+  function roverPicArr(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      picArr.push(arr[i].img_src);
+    }
+    return picArr;
+  }
+  console.log("roverPicArr", picArr);
+  console.log(roverPicArr(newArr));
 
   return (
     <div>

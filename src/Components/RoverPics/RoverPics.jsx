@@ -23,12 +23,14 @@ const RoverPics = ({ roverPics }) => {
                 </Card.Title>
                 <div className={styles.cardText_cardSubtitles}>
                   <Card.Text>
-                    Launch Date: {roverPics.rover.launch_date}
+                    <u>Launch Date:</u> {roverPics.rover.launch_date}
                   </Card.Text>
                   <Card.Text>
-                    Landing Date: {roverPics.rover.landing_date}
+                    <u>Landing Date:</u> {roverPics.rover.landing_date}
                   </Card.Text>
-                  <Card.Text>Status: {roverPics.rover.status}</Card.Text>
+                  <Card.Text>
+                    <b>Status:</b> {roverPics.rover.status}
+                  </Card.Text>
                 </div>
               </Card.Body>
             </Card>

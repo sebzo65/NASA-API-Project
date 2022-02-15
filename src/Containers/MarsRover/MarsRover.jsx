@@ -9,12 +9,13 @@ const MarsRover = () => {
 
   const [roverCam, setRoverCam] = useState(null);
 
-  const KEY = "GJ18rhBDoC1WeHfexEhTSsZh18xsgmlr3w25Rr3i";
+  // const KEY = "GJ18rhBDoC1WeHfexEhTSsZh18xsgmlr3w25Rr3i";
+  const DEMO = "DEMO_KEY";
 
   useEffect(() => {
     const getRoverPics = async () => {
       const response = await fetch(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&camera=${roverCam}&api_key=${KEY}`
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&camera=${roverCam}&api_key=${DEMO}`
       );
       const data = await response.json();
       setRoverPics(data);
@@ -25,6 +26,7 @@ const MarsRover = () => {
   const handleClick = (e) => {
     setRoverCam(e.target.value);
   };
+  console.log(roverPics);
 
   // const cleanedRoverPics = (data) => {
   //   let newArr = [];
@@ -46,28 +48,31 @@ const MarsRover = () => {
   //
   //
 
-  let newArr = [];
-  function roverArr(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      newArr.push(arr[i]);
+  //Function to randomise image selection
+  function randomiseImg(arr) {
+    let newArr = [];
+    const limit = 8;
+    let randomNum = Math.floor(Math.random() * arr.length);
+    //Specify how many pics to render
+    for (let i = 0; i < limit; i++) {
+      if (!newArr.includes(randomNum)) {
+        newArr.push(randomNum);
+      }
+    }
+
+    //If new Arr is less than original Arr, fill out the rest of the photos
+    if (newArr.length < arr.length) {
+      for (let i = 0; i < limit + newArr.length; i++) {
+        if (!newArr.includes(arr[i]) && newArr.length <= limit) {
+          newArr.push(arr[i]);
+        }
+      }
     }
     return newArr;
   }
-  console.log("NewArr:", newArr);
-  console.log(roverArr(roverPics.photos));
-
-  let picArr = [];
-  function roverPicArr(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      picArr.push(arr[i].img_src);
-    }
-    return picArr;
-  }
-  console.log("roverPicArr", picArr);
-  console.log(roverPicArr(newArr));
 
   return (
-    <div>
+    <div className={styles.page}>
       <ButtonGroup aria-label="Basic example">
         <Button variant="secondary" value="FHAZ" onClick={handleClick}>
           Front Hazard Avoidance Camera
@@ -94,7 +99,9 @@ const MarsRover = () => {
       <div className={styles.roverGallery}>
         {roverPics &&
           roverPics.photos
-            .filter((pics, index) => index < 4)
+            .filter((pics, index) =>
+              randomiseImg(roverPics.photos).includes(index)
+            )
             .map((pic, index) => <RoverPics roverPics={pic} key={index} />)}
       </div>
     </div>

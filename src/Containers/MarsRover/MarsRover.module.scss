@@ -1,8 +1,15 @@
 .roverGallery {
   display: flex;
-  border: 1px solid red;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: lightblue;
+}
+
+.header {
+  text-align: center;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: center;
 }

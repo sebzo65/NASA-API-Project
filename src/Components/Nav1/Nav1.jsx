@@ -47,7 +47,7 @@ const Nav1 = () => {
               <Nav.Link
                 as={Link}
                 className={styles.links}
-                to="/Natural Event Tracker"
+                to="/NaturalEventTracker"
               >
                 Natural Event Tracker
               </Nav.Link>

@@ -22,9 +22,6 @@ const SearchBar = ({ onSubmit }) => {
 
   return (
     <>
-      <div className={styles.searchText}>
-        <p>Search the Gallery!</p>
-      </div>
       <div className={styles.inputBox}>
         <label htmlFor="input"></label>
         <input

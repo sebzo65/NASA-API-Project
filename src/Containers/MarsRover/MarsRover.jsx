@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import RoverPics from "../../Components/RoverPics";
-import RoverSearch from "../../Components/RoverSearch";
 import styles from "./MarsRover.module.scss";
 import { Button, ButtonGroup } from "react-bootstrap";
+import SearchBar from "../../Components/SearchBar";
 
 const MarsRover = () => {
   //Mars Rover API
@@ -84,7 +84,7 @@ const MarsRover = () => {
       <h2 className={styles.header}>
         Photos taken on Curiosity's {search}th Martian Sol Expedition
       </h2>
-      <RoverSearch onSubmit={handleSubmit} />
+      <SearchBar onSubmit={handleSubmit} />
       <div className={styles.btnGroup}>
         <ButtonGroup aria-label="Basic example">
           <Button variant="secondary" value="FHAZ" onClick={handleClick}>

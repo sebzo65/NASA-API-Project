@@ -1,7 +1,11 @@
 import styles from "./NaturalEvents.module.scss";
 
-const NaturalEvents = ({ natEvents }) => {
-  return <div></div>;
+const NaturalEvents = ({ natEvent }) => {
+  return (
+    <div>
+      <p>{natEvent.events}</p>
+    </div>
+  );
 };
 
 export default NaturalEvents;

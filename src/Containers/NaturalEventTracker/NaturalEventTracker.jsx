@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import NaturalEvents from "../../Components/NaturalEvents";
+import NaturalEventButtons from "../../Components/NaturalEventButtons";
 import SearchBar from "../../Components/SearchBar";
 
 const NaturalEventTracker = () => {
@@ -45,10 +46,18 @@ const NaturalEventTracker = () => {
 
   return (
     <div>
-      <NaturalEvents
-        natEvent={natEvent}
-        onClick={(handleLimitClick, handleDaysClick)}
-      />
+      <NaturalEventButtons />
+      {natEvent &&
+        natEvent.events
+          .filter((natEvent, i) => i < 10)
+          .map((natEvent, i) => (
+            <NaturalEvents
+              natEvent={natEvent}
+              key={i}
+              onClick={(handleLimitClick, handleDaysClick)}
+            />
+          ))}
+
       <SearchBar onSubmit={handleSubmit} />
     </div>
   );

@@ -4,22 +4,13 @@ import styles from "./NaturalEventButtons.module.scss";
 
 const NaturalEventButtons = ({ onSubmit }) => {
   const [limit, setLimit] = useState("10");
-  const [days, setDays] = useState("10");
 
-  const handleLimitClick = (e) => {
+  const handleClick = (e) => {
     setLimit(e.target.value);
   };
 
-  const handleDaysClick = (e) => {
-    setDays(e.target.value);
-  };
-
-  const handleLimitSubmit = () => {
+  const handleSubmit = () => {
     onSubmit(limit);
-  };
-
-  const handleDaysSubmit = () => {
-    onSubmit(days);
   };
 
   return (
@@ -29,78 +20,41 @@ const NaturalEventButtons = ({ onSubmit }) => {
         <div className={styles.btnGroup}>
           <ButtonToolbar aria-label="Toolbar with button groups">
             <ButtonGroup className="me-2" aria-label="First group">
-              <Button value="1" onClick={handleLimitClick}>
+              <Button value="1" onClick={handleClick}>
                 1
               </Button>
-              <Button value="2" onClick={handleLimitClick}>
+              <Button value="2" onClick={handleClick}>
                 2
               </Button>
-              <Button value="3" onClick={handleLimitClick}>
+              <Button value="3" onClick={handleClick}>
                 3
               </Button>
-              <Button value="4" onClick={handleLimitClick}>
+              <Button value="4" onClick={handleClick}>
                 4
               </Button>
-              <Button value="5" onClick={handleLimitClick}>
+              <Button value="5" onClick={handleClick}>
                 5
               </Button>
-              <Button value="6" onClick={handleLimitClick}>
+              <Button value="6" onClick={handleClick}>
                 6
               </Button>
-              <Button value="7" onClick={handleLimitClick}>
+              <Button value="7" onClick={handleClick}>
                 7
               </Button>
-              <Button value="8" onClick={handleLimitClick}>
+              <Button value="8" onClick={handleClick}>
                 8
               </Button>
-              <Button value="9" onClick={handleLimitClick}>
+              <Button value="9" onClick={handleClick}>
                 9
               </Button>
-              <Button value="10" onClick={handleLimitClick}>
-                10
-              </Button>
-            </ButtonGroup>
-          </ButtonToolbar>
-        </div>
-        <h3 className={styles.textEvents}>How far back do you want to go?</h3>
-        <div className={styles.btnGroup}>
-          <ButtonToolbar aria-label="Toolbar with button groups">
-            <ButtonGroup className="me-2" aria-label="First group">
-              <Button value="1" onClick={handleDaysClick}>
-                1
-              </Button>
-              <Button value="2" onClick={handleDaysClick}>
-                2
-              </Button>
-              <Button value="3" onClick={handleDaysClick}>
-                3
-              </Button>
-              <Button value="4" onClick={handleDaysClick}>
-                4
-              </Button>
-              <Button value="5" onClick={handleDaysClick}>
-                5
-              </Button>
-              <Button value="6" onClick={handleDaysClick}>
-                6
-              </Button>
-              <Button value="7" onClick={handleDaysClick}>
-                7
-              </Button>
-              <Button value="8" onClick={handleDaysClick}>
-                8
-              </Button>
-              <Button value="9" onClick={handleDaysClick}>
-                9
-              </Button>
-              <Button value="10" onClick={handleDaysClick}>
+              <Button value="10" onClick={handleClick}>
                 10
               </Button>
             </ButtonGroup>
           </ButtonToolbar>
         </div>
       </div>
-      <button onClick={(handleLimitSubmit, handleDaysSubmit)}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

@@ -2,34 +2,43 @@ import styles from "./NaturalEvents.module.scss";
 import { Table } from "react-bootstrap";
 
 const NaturalEvents = ({ natEvent }) => {
-  console.log(natEvent.events);
   return (
     <div>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>{natEvent.title}</th>
+            <th>{natEvent.geometry[0].date}</th>
+            <th>{natEvent.geometry[1].date}</th>
+            <th>{natEvent.geometry[2].date}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>Coordinates:</td>
+            <td>
+              Lat: {natEvent.geometry[0].coordinates[0]}, Long:
+              {natEvent.geometry[0].coordinates[1]}
+            </td>
+            <td>
+              Lat: {natEvent.geometry[1].coordinates[0]}, Long:
+              {natEvent.geometry[1].coordinates[1]}
+            </td>
           </tr>
           <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td>Magnitude Value:</td>
+            <td>
+              {natEvent.geometry[0].magnitudeValue}
+              {natEvent.geometry[0].magnitudeUnit}
+            </td>
+            <td>
+              {natEvent.geometry[1].magnitudeValue}
+              {natEvent.geometry[1].magnitudeUnit}
+            </td>
           </tr>
           <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
+            <td>Source</td>
+            <td>{natEvent.sources[0]}</td>
             <td>@twitter</td>
           </tr>
         </tbody>

@@ -11,32 +11,24 @@ const NaturalEventTracker = () => {
   const [natEvent, setNatEvent] = useState("");
   //State for limit on number of items displayed
   const [limit, setLimit] = useState("");
-  //State for limit on how many days back
-  const [days, setDays] = useState("");
 
   useEffect(() => {
     if (!limit) return;
     const getNatEvents = async () => {
       const response = await fetch(
-        `https://eonet.gsfc.nasa.gov/api/v3/events?limit=${limit}&days=${days}`
+        `https://eonet.gsfc.nasa.gov/api/v3/events?limit=${limit}`
       );
       const data = await response.json();
       setNatEvent(data);
     };
     getNatEvents();
-  }, [limit, days]);
+  }, [limit]);
   console.log("Limit: ", limit);
-  console.log("Days: ", days);
   console.log(natEvent);
 
   //Handle input for limit
-  const handleLimitSubmit = (value) => {
+  const handleSubmit = (value) => {
     setLimit(value);
-  };
-
-  // //Handle input for days
-  const handleDaysSubmit = (value) => {
-    setDays(value);
   };
 
   //Function to randomise image selection
@@ -54,14 +46,12 @@ const NaturalEventTracker = () => {
 
   return (
     <div>
-      <NaturalEventButtons onSubmit={(handleLimitSubmit, handleDaysSubmit)} />
+      <NaturalEventButtons onSubmit={handleSubmit} />
       <div>
         {natEvent &&
-          natEvent.events
-            .filter((natEvent, i) => i < 10)
-            .map((natEvent, i) => (
-              <NaturalEvents natEvent={natEvent} key={i} />
-            ))}
+          natEvent.events.map((natEvent, i) => (
+            <NaturalEvents natEvent={natEvent} key={i} />
+          ))}
       </div>
     </div>
   );

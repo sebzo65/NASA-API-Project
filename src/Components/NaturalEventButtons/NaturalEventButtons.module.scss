@@ -5,4 +5,13 @@
 .btnGroup {
   display: flex;
   justify-content: center;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+.button {
+  width: 10vw;
+  height: 10vh;
+  margin-left: 2%;
+  font-size: large;
 }

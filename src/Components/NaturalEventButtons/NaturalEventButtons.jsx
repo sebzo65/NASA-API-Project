@@ -3,19 +3,22 @@ import { ButtonToolbar, ButtonGroup, Button } from "react-bootstrap";
 import styles from "./NaturalEventButtons.module.scss";
 
 const NaturalEventButtons = ({ onSubmit }) => {
-  const [limit, setLimit] = useState("10");
+  const [days, setDays] = useState("10");
 
   const handleClick = (e) => {
-    setLimit(e.target.value);
+    setDays(e.target.value);
   };
 
   const handleSubmit = () => {
-    onSubmit(limit);
+    onSubmit(days);
   };
 
   return (
     <div>
-      <h3 className={styles.textEvents}>How many events do you want to see?</h3>
+      <h3 className={styles.textEvents}>
+        Choose number of days for which you wish to see the latest natural
+        disasters
+      </h3>
       <div>
         <div className={styles.btnGroup}>
           <ButtonToolbar aria-label="Toolbar with button groups">
@@ -52,9 +55,16 @@ const NaturalEventButtons = ({ onSubmit }) => {
               </Button>
             </ButtonGroup>
           </ButtonToolbar>
+          <Button
+            onClick={handleSubmit}
+            className={styles.button}
+            variant="secondary"
+            size="lg"
+          >
+            Submit
+          </Button>
         </div>
       </div>
-      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

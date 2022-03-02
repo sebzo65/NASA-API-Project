@@ -9,26 +9,26 @@ const NaturalEventTracker = () => {
   //State for data from Earth Observatory Natural
   //Event Tracker (EONET) API
   const [natEvent, setNatEvent] = useState("");
-  //State for limit on number of items displayed
-  const [limit, setLimit] = useState("");
+  //State for limit on how many days back user wants to query
+  const [days, setDays] = useState("");
 
   useEffect(() => {
-    if (!limit) return;
+    if (!days) return;
     const getNatEvents = async () => {
       const response = await fetch(
-        `https://eonet.gsfc.nasa.gov/api/v3/events?limit=${limit}`
+        `https://eonet.gsfc.nasa.gov/api/v3/events?limit=10&days=${days}`
       );
       const data = await response.json();
       setNatEvent(data);
     };
     getNatEvents();
-  }, [limit]);
-  console.log("Limit: ", limit);
+  }, [days]);
+  console.log("Days: ", days);
   console.log(natEvent);
 
   //Handle input for limit
   const handleSubmit = (value) => {
-    setLimit(value);
+    setDays(value);
   };
 
   //Function to randomise image selection

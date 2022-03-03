@@ -31,27 +31,34 @@ const NaturalEventTracker = () => {
     setDays(value);
   };
 
-  //Function to randomise image selection
-  // function randomiseImg(arr) {
-  //   let newArr = [];
-  //   for (let i = 0; i < arr.length; i++) {
-  //     let randomNum = Math.floor(Math.random() * arr.length);
-  //     if (!newArr.includes(randomNum)) {
-  //       newArr.push(randomNum);
-  //     }
-  //   }
-  //   console.log("New Array: ", newArr);
-  //   return newArr;
-  // }
+  // //Function to randomise image selection
+  function randomiseImg(arr) {
+    let newArr = [];
+    //Specify how many pics to render
+    for (let i = 0; i < arr.length; i++) {
+      let randomNum = Math.floor(Math.random() * arr.length);
+      if (!newArr.includes(randomNum)) {
+        newArr.push(randomNum);
+      }
+    }
+    return newArr;
+  }
+  {
+    natEvent.events &&
+      console.log("New Array: ", randomiseImg(natEvent.events));
+  }
 
   return (
     <div>
       <NaturalEventButtons onSubmit={handleSubmit} />
       <div>
         {natEvent &&
-          natEvent.events.map((natEvent, i) => (
-            <NaturalEvents natEvent={natEvent} key={i} />
-          ))}
+          natEvent.events &&
+          natEvent.events
+            .filter((natEvent, i) => randomiseImg(natEvent.events).includes(i))
+            .map((natEvent, i) => (
+              <NaturalEvents natEvent={natEvent} key={i} />
+            ))}
       </div>
     </div>
   );
